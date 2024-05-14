@@ -1,8 +1,8 @@
 import express from "express";
-import ctrl from "../controllers/events.js";
-import isValidId from "../../middlewares/isValidId.js";
-import { isEmptyBody, validateBody } from "../../middlewares/index.js";
-import { userRegister } from "../../models/event.js";
+import isValidId from "../../middlewares/isValidId.mjs";
+import { isEmptyBody, validateBody } from "../../middlewares/index.mjs";
+import { userRegister } from "../../models/event.mjs";
+import ctrl from "../../controllers/events.mjs";
 
 export const eventRoute = express.Router();
 

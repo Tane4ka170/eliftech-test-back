@@ -2,7 +2,7 @@ import express from "express";
 import logger from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
-import { eventRoute } from "./routes/eventsRoute.js";
+import { eventRoute } from "./routes/api/events.mjs";
 
 const app = express();
 
@@ -27,5 +27,3 @@ app.use((err, req, res, next) => {
 });
 
 export default app;
-
-// FLE5Oimawp75BUu7

@@ -1,5 +1,5 @@
-import { ctrlWrapper } from "../helpers";
-import { Event } from "../models/event";
+import { ctrlWrapper } from "../helpers/index.mjs";
+import { Event } from "../models/event.mjs";
 
 const getEvents = async (req, res) => {
   const { page, limit } = req.query;
