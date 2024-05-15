@@ -6,12 +6,14 @@ const getEvents = async (req, res) => {
 
   const skip = (page - 1) * limit;
 
-  const events = await Event.find({}, "-updatedAt -createdAt -participants", {
+  const totalEvents = await Event.countDocuments({});
+
+  const events = await Event.find({}, "-updatedAt -createdAt", {
     skip,
     limit,
   });
 
-  res.status(200).json(events);
+  res.status(200).json({ totalEvents, events });
 };
 
 const addParticipants = async (req, res) => {
@@ -30,7 +32,7 @@ const addParticipants = async (req, res) => {
 const getEventParticipants = async (req, res) => {
   const { id } = req.params;
 
-  const participants = await Event.findById(id, "-updatedAt -createdAt");
+  const participants = await Event.findById(id, "title participants");
 
   res.status(200).json(participants);
 };
